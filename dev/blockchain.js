@@ -7,7 +7,7 @@ function Blockchain() {
 
 //genesis block
    
-    this.createNewBlock(100, '0', '0');
+    this.createNewBlock(100, '0', '1');
 }
 
 //methods to create new block

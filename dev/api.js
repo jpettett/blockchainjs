@@ -1,4 +1,8 @@
+const Blockchain = require('./blockchain');
 const bodyParser = require('body-parser');
+
+const bitcoin = new Blockchain();
+
 var express =require('express');
 var app = express();
 
@@ -7,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 
 app.get('/blockchain', function (req, res) {
-    res.send('Hello World')
+    res.send(bitcoin);
 });
 
 app.post('/transaction', function(req, res) {
