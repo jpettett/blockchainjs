@@ -28,11 +28,12 @@ Blockchain.prototype.createNewBlock = function(nonce, previousBlockHash, hash) {
     return newBlock;
 }
 
-
+//gets last block
 Blockchain.prototype.getLastBlock = function() {
     return this.chain[this.chain.length - 1];
 }
 
+//create new transaction
 Blockchain.prototype.createNewTransaction = function(amount, sender, recipient) {
     const newTransaction = {
         amount: amount,
