@@ -11,7 +11,8 @@ const bitcoin = new Blockchain();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
+// app.use(express.urlencoded({ extended: true }));
+// app.use(express.json());
 
 
 //get blockchain
