@@ -3,6 +3,8 @@ const app = express();
 const bodyParser = require('body-parser');
 const Blockchain = require('./blockchain');
 const { v4: uuidv4 } = require('uuid');
+//port 3001
+const port = process.argv[2];
 
 //creates unique id
 const nodeAddress = uuidv4().split('-').join('');
@@ -50,8 +52,8 @@ app.get('/mine', function(req, res){
 
 
 
-app.listen(3000, function() {
-    console.log('Listening on Port 3000...')
+app.listen(port, function() {
+    console.log(`Listening on Port ${port}...`)
 });
 
 
