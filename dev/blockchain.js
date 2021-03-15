@@ -7,6 +7,7 @@ function Blockchain() {
     this.pendingTransactions = [];
 
     this.currentNodeUrl = currentNodeUrl;
+    this.netWorkNodes = [];
 
 //genesis block
    

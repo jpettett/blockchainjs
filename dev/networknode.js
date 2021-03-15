@@ -50,6 +50,21 @@ app.get('/mine', function(req, res){
     });
 });
 
+//register node and broadcast to network
+app.post('/register-and-broadcast-node', function(req, res) {
+    const newNodeUrl = req.body.newNodeUrl;
+});
+
+//register node with network
+app.post('/register-node', function(req, res) {
+    
+})
+
+//register multiple nodes at once
+app.post('/register-nodes-bulk', function(req, res) {
+
+})
+
 
 
 app.listen(port, function() {
