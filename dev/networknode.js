@@ -5,6 +5,7 @@ const Blockchain = require('./blockchain');
 const { v4: uuidv4 } = require('uuid');
 //port 3001
 const port = process.argv[2];
+const rp = require('request-promise');
 
 //creates unique id
 const nodeAddress = uuidv4().split('-').join('');
@@ -53,6 +54,22 @@ app.get('/mine', function(req, res){
 //register node and broadcast to network
 app.post('/register-and-broadcast-node', function(req, res) {
     const newNodeUrl = req.body.newNodeUrl;
+    if(bitcoin.netWorkNodes.indexOf(newNodeUrl) === -1) bitcoin.netWorkNodes.push(newNodeUrl);
+    const regNodesPromises = [];
+    bitcoin.networkNodes.forEach(networkNodeUrl => {
+        const requestOptions = {
+            uri: networkNodeUrl + '/register-node',
+            method: 'POST',
+            body: { newNodeUrl: newNodeUrl },
+            json: true
+        };
+//async
+        regNodesPromises.push(rp(requestOptions));
+    });
+    Promise.all(regNodesPromises)
+    .then(data => {
+
+    });
 });
 
 //register node with network
